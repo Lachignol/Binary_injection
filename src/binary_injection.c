@@ -18,10 +18,12 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
+#include <wait.h>
 
 int main(int count, char **argv) {
 
   (void)count;
+  (void)argv;
   char fileName[] = "/tmp/fileXXXXXX";
   size_t writeBytes;
   int fd = mkstemp(fileName);
@@ -44,10 +46,21 @@ int main(int count, char **argv) {
     unlink(fileName);
     return 1;
   }
-  // faire un fork
-  execv(fileName, argv);
-
-  perror("execv");
-  unlink(fileName);
-  return 1;
+  int pid = fork();
+  if (pid < 0) {
+    perror("Probleme lors du fork");
+    return (1);
+  }
+  if (pid == 0) {
+    char *new_argv[] = {fileName, argv[1], NULL};
+    printf("Execution de ma payload:\n");
+    execv(fileName, new_argv);
+    perror("execv");
+    unlink(fileName);
+    return 1;
+  } else {
+    wait(&pid);
+    printf("\nRetour dans mon programme principal\n");
+    return (0);
+  }
 }
