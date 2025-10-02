@@ -23,7 +23,6 @@
 int main(int count, char **argv) {
 
   (void)count;
-  (void)argv;
   char fileName[] = "/tmp/fileXXXXXX";
   size_t writeBytes;
   int fd = mkstemp(fileName);
