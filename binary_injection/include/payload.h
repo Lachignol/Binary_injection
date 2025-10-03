@@ -1,4 +1,3 @@
-
 #ifndef __PAYLOAD_H
 
 #define __PAYLOAD_H
