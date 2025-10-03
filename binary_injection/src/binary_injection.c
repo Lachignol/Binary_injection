@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/injection.h"
+#include "../include/payload.h"
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,8 +32,8 @@ int main(int count, char **argv) {
   }
 
   chmod(fileName, 0700);
-  writeBytes = write(fd, binary_injection, binary_injection_len);
-  if (writeBytes != binary_injection_len) {
+  writeBytes = write(fd, payload, payload_len);
+  if (writeBytes != payload_len) {
     perror("write");
     close(fd);
     unlink(fileName);
