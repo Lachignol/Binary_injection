@@ -1,4 +1,4 @@
-NAME = binary_to_header
+NAME = binary_print_header
 CC = gcc 
 CFLAGS = -Wall -Wextra -Werror -g
 MAKEFLAGS += --no-print-directory
