@@ -60,7 +60,7 @@ int main(int count, char **argv) {
       printf("0x%02x", buf[i]);
       if (i < size_of_payload - 1)
         printf(", ");
-      if ((i + 1 % 12) == 0 && i != size_of_payload - 1)
+      if ((i + 1 % 12) == 0 && (i != size_of_payload - 1))
         printf("\n   ");
     }
     printf("};\n\n");
