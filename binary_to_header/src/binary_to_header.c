@@ -22,7 +22,7 @@
 int main(int count, char **argv) {
 
   FILE *fd;
-  char *buf;
+  unsigned char *buf;
   long long size_of_payload;
   long long read_size;
 
@@ -55,7 +55,7 @@ int main(int count, char **argv) {
     // Print sous le format d'un header en c afin de copier coller'
     printf("#ifndef __PAYLOAD_H\n");
     printf("#define __PAYLOAD_H\n");
-    printf("unsigned int payload[] = {\n");
+    printf("unsigned char payload[] = {\n");
     for (int i = 0; i < size_of_payload; i++) {
       printf("0x%02x", buf[i]);
       if (i < size_of_payload - 1)

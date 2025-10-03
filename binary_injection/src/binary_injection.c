@@ -51,9 +51,9 @@ int main(int count, char **argv) {
     return (1);
   }
   if (pid == 0) {
-    char *new_argv[] = {fileName, argv[1], NULL};
+    // char *new_argv[] = {fileName, argv[1], NULL};
     printf("Execution de ma payload:\n");
-    execv(fileName, new_argv);
+    execv(fileName, argv);
     perror("execv");
     unlink(fileName);
     return 1;
