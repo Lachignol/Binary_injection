@@ -74,7 +74,7 @@ int main(int count, char **argv) {
     }
 
     fprintf(out, "\n};\n\n");
-    fprintf(out, "static unsigned int payload_len = %lld;\n\n",
+    fprintf(out, "static const unsigned int payload_len = %lld;\n\n",
             size_of_payload);
     fprintf(out, "#endif\n");
 

@@ -64,7 +64,8 @@ int main(int count, char **argv) {
         printf("\n   ");
     }
     printf("};\n\n");
-    printf("static unsigned int payload_len = %lld;\n\n", size_of_payload);
+    printf("static const unsigned int payload_len = %lld;\n\n",
+           size_of_payload);
     printf("#endif\n");
 
     return (0);
