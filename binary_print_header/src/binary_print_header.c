@@ -55,7 +55,7 @@ int main(int count, char **argv) {
     // Print sous le format d'un header en c afin de copier coller'
     printf("#ifndef __PAYLOAD_H\n");
     printf("#define __PAYLOAD_H\n");
-    printf("unsigned char payload[] = {\n");
+    printf("static unsigned char payload[] = {\n");
     for (int i = 0; i < size_of_payload; i++) {
       printf("0x%02x", buf[i]);
       if (i < size_of_payload - 1)
@@ -64,7 +64,7 @@ int main(int count, char **argv) {
         printf("\n   ");
     }
     printf("};\n\n");
-    printf("unsigned int payload_len = %lld;\n\n", size_of_payload);
+    printf("static unsigned int payload_len = %lld;\n\n", size_of_payload);
     printf("#endif\n");
 
     return (0);
