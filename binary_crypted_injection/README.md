@@ -1,40 +1,59 @@
-# Binary_injection
+# Binary Crypted Injection -  Déchiffrement et exécution du payload
 
+### Description
 
-## Génération d'un fichier header C avec un tableau d'octets à l'aide de `xxd`
+Ce programme inclut le `payload.h`, déchiffre le tableau d’octets en appliquant la même clé XOR, crée un fichier temporaire exécutable, écrit le binaire déchiffré dedans, puis exécute ce fichier.
 
-Pour inclure dans un programme C un tableau d'octets représentant un fichier binaire, la commande `xxd` avec l'option `-i` permet de générer automatiquement un fichier header au format C.
+Le fichier temporaire est ensuite supprimé automatiquement après exécution.
 
-### Commande
+### Utilisation
 
+``` bash
+./binary_crypted_injection <arguments_exécutables> <cle_de_chiffrement>
 
-```bash
-xxd -i fichier_binaire > fichier.h
 ```
 
 
-Cette commande transforme le contenu `fichier_binaire` en un tableau C statique dans `fichier.h`.
+- `<arguments_exécutables>` : arguments à passer au binaire exécuté.
+- `<cle_de_chiffrement>` : la même clé utilisée au chiffrement.
 
-### Exemple de sortie générée
-```bash
-unsigned char fichier_binaire[] = {
-0x00, 0x01, 0x02, 0x03, /* etc. */
-};
-unsigned int fichier_binaire_len = sizeof(fichier_binaire);
+### Exemple
+
+
+``` bash
+./binary_crypted_injection arg1 arg2 ma_cle_secrete
+
 ```
 
-
-### Utilisation dans le code C
-
-Il suffit d'inclure le header généré dans vos fichiers C :
-```bash
-#include "fichier.h"
-
-// Utilisation de fichier_binaire et fichier_binaire_len
-```
-
-Le tableau est initialisé en lecture seule et peut être utilisé directement comme un tableau classique d'octets (`unsigned char`).
 
 ---
 
-Cette méthode est simple et efficace pour intégrer du contenu binaire directement dans le code source C sans avoir à gérer des fichiers externes à l'exécution.
+## Détails techniques
+
+- Le chiffrement/déchiffrement utilise un XOR avec une clé répétée.
+- Utilisation de fonctions systèmes sécurisées `mkstemp`, `chmod`, `fork`, `execv` pour manipuler le binaire temporaire.
+- Suppression propre du fichier temporaire avec `unlink` après exécution.
+- Gestion d’erreurs robuste lors de la lecture, écriture, exécution et permissions.
+
+---
+
+## Prérequis
+
+- Compilateur C compatible (ex : gcc)
+- Système UNIX/Linux pour gestion des fichiers temporaires et exécution système.
+
+---
+## Compilation exemple
+
+- Rendez-vous dans le répertoire du programme souhaité :
+
+``` bash
+cd binary_crypted_injection
+```
+- Puis compilez avec `make` :
+
+``` bash
+make
+```
+
+
