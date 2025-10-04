@@ -96,7 +96,9 @@ int main(int count, char **argv) {
     printf("Le fichier payload.h a été généré avec succès.\n");
     return (0);
   } else {
-    printf("Format: %s <path of binary to transform in header>\n", argv[0]);
+    printf("Format: %s <path of binary to encrypt and transform in header> "
+           "<key for encryption>\n",
+           argv[0]);
     return (1);
   }
 }
