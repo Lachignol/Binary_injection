@@ -8,10 +8,13 @@ Ce dépôt contient deux programmes C permettant de :
 ---
 
 ## Programme 1 : Création du header avec binaire chiffré
+- [Cliquez-ici pour voir ma version sans chiffrement et/ou j'explique aussi le comportement de xxd](binary_create_header/README.md)
 
 ### Description
 
-Ce programme lit un fichier binaire (ex : un exécutable), chiffre son contenu avec un chiffrement XOR simple à clé répétée, puis génère un fichier `payload.h`.
+Ce programme lit un fichier binaire (ex : un exécutable), chiffre son contenu avec un chiffrement XOR simple à clé répétée, puis génère un fichier `payload.h` (comme xxd -i mais avec le chiffrement en plus).
+
+
 
 Ce fichier header contient :
 
@@ -39,6 +42,7 @@ Ce qui génère un fichier `payload.h` à inclure dans votre projet C.
 ---
 
 ## Programme 2 : Déchiffrement et exécution du payload
+- [Cliquez-ici pour voir ma version sans chiffrement](binary_injection/README.md)
 
 ### Description
 
