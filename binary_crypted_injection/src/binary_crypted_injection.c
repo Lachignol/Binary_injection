@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binary_injection.c                                 :+:      :+:    :+:   */
+/*   binary_crypted_injection.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ascordil <ascordil@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -20,6 +20,17 @@
 #include <unistd.h>
 #include <wait.h>
 
+static int decrypt_xor(unsigned char *payload, long long size_pload,
+                       char *key) {
+
+  int key_len = strlen(key);
+
+  for (int i = 0; i < size_pload; i++) {
+    payload[i] ^= key[i % key_len];
+  }
+  return (1);
+}
+
 int main(int count, char **argv) {
 
   (void)count;
@@ -30,7 +41,7 @@ int main(int count, char **argv) {
     perror("Erreur lors de la creation du fichier temporaire");
     return 1;
   }
-
+  decrypt_xor(payload, payload_len, argv[2]);
   writeBytes = write(fd, payload, payload_len);
   if (writeBytes != payload_len) {
     perror("write");
