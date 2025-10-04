@@ -30,7 +30,7 @@ Cela permet d’inclure directement des données binaires dans des programmes C 
 
 ***
 
-## Description de votre programme
+## Description du programme
 
 Ce programme implémente cette fonctionnalité directement en C, sans dépendre de `xxd`. Il :
 
@@ -49,7 +49,7 @@ Ce programme implémente cette fonctionnalité directement en C, sans dépendre 
 ### Utilisation
 
 ```bash
-./votre_programme fichier_binaire
+./binary_create_header fichier_binaire
 ```
 
 Produit `payload.h` dans le répertoire courant, prêt à être inclus dans un projet C.
@@ -67,7 +67,7 @@ static unsigned char payload[] = {
 0x89, 0x50, 0x4e, 0x47, /* et ainsi de suite */
 };
 
-static unsigned int payload_len = 1024;
+static const unsigned int payload_len = 1024;
 
 #endif
 ```
