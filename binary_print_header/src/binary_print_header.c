@@ -69,6 +69,6 @@ int main(int count, char **argv) {
 
     return (0);
   } else
-    printf("Format: %s <path of file to transform in header>\n", argv[0]);
+    printf("Format: %s <path of file to print in header>\n", argv[0]);
   return (1);
 }
