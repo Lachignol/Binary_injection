@@ -1,4 +1,4 @@
-# Binary Injection - Génération manuelle d'un header binaire
+# Binary Create Header - Génération manuelle d'un header binaire
 
 Ce programme C permet de générer un fichier header `.h` contenant un tableau d'octets représentant un fichier binaire, à l'image de la commande système **xxd -i**.
 
