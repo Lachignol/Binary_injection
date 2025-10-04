@@ -39,7 +39,7 @@ int main(int count, char **argv) {
     size_of_payload = ftell(fd);
     rewind(fd);
 
-    buf = malloc(sizeof(char) * size_of_payload);
+    buf = malloc(sizeof(char) * (size_of_payload + 1));
     if (!buf) {
       perror("Erreur d'allocation memoire");
       fclose(fd);
@@ -53,7 +53,7 @@ int main(int count, char **argv) {
       free(buf);
       return (1);
     }
-
+    buf[size_of_payload] = '\0';
     out = fopen("payload.h", "w");
     if (out == NULL) {
       perror("Impossible de creer le fichier payload.h");

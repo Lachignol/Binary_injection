@@ -44,14 +44,14 @@ int main(int count, char **argv) {
     // Je retabli le curseur au debut du fichier je pourrai aussi faire
     // fseek(fp, 0, SEEK_SET);
     rewind(fd);
-    buf = malloc(sizeof(char) * (size_of_payload));
+    buf = malloc(sizeof(char) * (size_of_payload + 1));
     read_size = fread(buf, 1, size_of_payload, fd);
     fclose(fd);
     if (read_size != size_of_payload) {
       perror("Probleme lors de la lecture\n");
       return (1);
     }
-
+    buf[size_of_payload] = '\0';
     // Print sous le format d'un header en c afin de copier coller'
     printf("#ifndef __PAYLOAD_H\n");
     printf("#define __PAYLOAD_H\n");
