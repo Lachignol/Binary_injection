@@ -1,6 +1,6 @@
 # binary_print_header
 
-Ce programme C affiche le contenu d’un fichier binaire sous forme d’un fichier header C (.h), prêt à être copié-collé dans un projet.
+Ce programme C affiche le contenu d’un fichier binaire chiffré sous forme d’un fichier header C (.h), prêt à être copié-collé dans un projet.
 
 ---
 
@@ -40,7 +40,7 @@ make
 Exécuter le programme avec un fichier binaire :
 
 ```bash
-./binary_print_header mon_fichier_binaire clef_secrete
+./binary_print_header mon_fichier_binaire clef_secrète
 ```
 
 
@@ -72,7 +72,7 @@ Veillez à rediriger la sortie vers un fichier si vous souhaitez sauvegarder ce 
 
 
 ```bash
-./binary_print_header mon_fichier > payload.h
+./binary_print_header mon_fichier clef_secrete > payload.h
 ```
 ---
 
