@@ -33,7 +33,7 @@ static int decrypt_xor(unsigned char *payload, long long size_pload,
 
 int main(int count, char **argv) {
 
-  if (count >= 3) {
+  if (count >= 2) {
     if (strlen(argv[count - 1]) == 0) {
       fprintf(stderr, "La clé de déchiffrement ne peut pas être vide.\n");
       return 1;
