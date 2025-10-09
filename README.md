@@ -2,7 +2,7 @@
 
 Ce dépôt contient deux programmes C permettant de :
 
-- **Crypter un fichier binaire en un fichier header C (.h)** contenant le binaire chiffré sous forme d’un tableau d’octets.
+- **Chiffrer un fichier binaire en un fichier header C (.h)** contenant le binaire chiffré sous forme d’un tableau d’octets.
 - **Déchiffrer ce fichier header pour recréer le binaire en mémoire**, l’écrire dans un fichier temporaire exécutable, puis l’exécuter.
 
 ---
